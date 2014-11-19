@@ -17,7 +17,7 @@ sub new
   
   $args{alien_name} = 'flex';
   $args{alien_build_commands} = [
-    '%c --prefix=%s',
+    '%c --prefix=%s --disable-shared',
     'make',
   ];
   $args{alien_install_commands} = [
@@ -30,6 +30,11 @@ sub new
     exact_filename => 'flex-2.5.39.tar.gz',
   };
 
+  if($ENV{ALIEN_FORCE} || do { local $quiet = 1; ! $class->alien_check_installed_version })
+  {
+    $args{alien_bin_requires} = { 'Alien::m4' => 0 };
+  }
+  
   my $self = $class->SUPER::new(%args);
   
   $self;
@@ -105,7 +110,7 @@ sub alien_check_installed_version
     };
     if(defined $stdout[0] && $stdout[0] =~ /^flex/ && $stdout[0] =~ /([0-9\.]+)$/)
     {
-      $self->config_data( flex_system_path => File::Spec->catdir(@$path) ) if @$path;
+      $self->config_data( flex_system_path => File::Spec->catdir(@$path) ) if ref($self) && @$path;
       return $1;
     }
   }

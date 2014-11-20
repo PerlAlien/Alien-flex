@@ -17,6 +17,7 @@ sub new
   
   $args{alien_name} = 'flex';
   $args{alien_build_commands} = [
+    "$patch -p1 < ../../flex-2_5_39.patch",
     '%c --prefix=%s --disable-shared',
     'make',
   ];
@@ -32,7 +33,7 @@ sub new
 
   if($ENV{ALIEN_FORCE} || do { local $quiet = 1; ! $class->alien_check_installed_version })
   {
-    $args{alien_bin_requires} = { 'Alien::m4' => 0 };
+    $args{alien_bin_requires} = { 'Alien::m4' => 0, 'Alien::patch' => 0.03 };
   }
   
   my $self = $class->SUPER::new(%args);

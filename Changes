@@ -2,6 +2,9 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+0.03      2015-04-22 11:39:04 -0400
+  - Require Alien::Base 0.017 (required for alien_stage_install)
+
 0.02      2015-04-22 11:16:30 -0400
   - use alien_stage_install
 

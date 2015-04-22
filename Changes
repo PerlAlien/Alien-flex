@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.02      2015-04-22 11:16:30 -0400
   - use alien_stage_install
 
 0.01      2015-03-18 15:22:38 -0400

@@ -16,6 +16,7 @@ sub new
   my($class, %args) = @_;
   
   $args{alien_name} = 'flex';
+  $args{alien_stage_install} = 1;
   $args{alien_build_commands} = [
     "$patch -p1 < ../../flex-2_5_39.patch",
     '%c --prefix=%s --disable-shared',

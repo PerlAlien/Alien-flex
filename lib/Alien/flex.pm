@@ -36,7 +36,7 @@ sub bin_dir
   my($class) = @_;
   if($class->install_type('system'))
   {
-    my $path = $class->config('bison_system_path');
+    my $path = $class->config('flex_system_path');
     return ($path) if $path;
   }
 

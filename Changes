@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.04      2015-06-20 07:48:00 -0400
   - Fix for finding system path to flex on MSWin32
 
 0.03      2015-04-22 11:39:04 -0400

@@ -7,41 +7,6 @@ use File::chdir;
 use Capture::Tiny qw( capture_stderr );
 use File::Spec;
 
-our $quiet = 0;
-
-my $patch = $^O eq 'MSWin32' ? 'patch --binary' : 'patch';
-
-sub new
-{
-  my($class, %args) = @_;
-  
-  $args{alien_name} = 'flex';
-  $args{alien_stage_install} = 1;
-  $args{alien_build_commands} = [
-    "$patch -p1 < ../../flex-2_5_39.patch",
-    '%c --prefix=%s --disable-shared',
-    'make',
-  ];
-  $args{alien_install_commands} = [
-    'make install',
-  ];
-  $args{alien_repository} = {
-    protocol       => 'http',
-    host           => 'sourceforge.net',
-    location       => '/projects/flex/files/',
-    exact_filename => 'flex-2.5.39.tar.gz',
-  };
-
-  if($ENV{ALIEN_FORCE} || do { local $quiet = 1; ! $class->alien_check_installed_version })
-  {
-    $args{alien_bin_requires} = { 'Alien::m4' => 0, 'Alien::patch' => 0.03 };
-  }
-  
-  my $self = $class->SUPER::new(%args);
-  
-  $self;
-}
-
 sub _short ($)
 {
   $_[0] =~ /\s+/ ? Win32::GetShortPathName( $_[0] ) : $_[0];
@@ -97,11 +62,8 @@ sub alien_check_installed_version
     
   }
 
-  unless($quiet)
-  {
-    print "try system paths:\n";
-    print "  - ", $_, "\n" for map { $_ eq '' ? 'PATH' : $_ } map { File::Spec->catdir(@$_) } @paths;
-  }
+  print "try system paths:\n";
+  print "  - ", $_, "\n" for map { $_ eq '' ? 'PATH' : $_ } map { File::Spec->catdir(@$_) } @paths;
   
   foreach my $path (@paths)
   {

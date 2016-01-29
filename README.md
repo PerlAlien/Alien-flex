@@ -1,4 +1,4 @@
-# Alien::flex
+# Alien::flex [![Build Status](https://secure.travis-ci.org/plicease/Alien-flex.png)](http://travis-ci.org/plicease/Alien-flex)
 
 Find or build flex
 

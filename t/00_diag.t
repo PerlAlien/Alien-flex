@@ -17,7 +17,9 @@ $modules{$_} = $_ for qw(
   Capture::Tiny
   File::ShareDir
   File::chdir
+  Test::Alien
   Test::More
+  Test::Stream
 );
 
 

@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Prune experimental t/run.t test
 
 0.06      2016-01-29 10:03:59 -0500
   - Fixed metadata bug where bin_requires were included

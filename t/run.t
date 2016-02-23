@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-use Test::Stream -V1;
+use Test2::Bundle::Extended;
 use Test::Alien;
 use Alien::flex;
 

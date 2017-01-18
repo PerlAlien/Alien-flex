@@ -43,4 +43,21 @@ sub bin_dir
   return $class->SUPER::bin_dir;
 }
 
+=head1 HELPERS
+
+=head2 flex
+
+ %{flex}
+
+Returns the name of the flex command.  Usually just C<flex>.
+
+=cut
+
+sub alien_helper
+{
+  return {
+    flex => sub { 'flex' },
+  };
+}
+
 1;

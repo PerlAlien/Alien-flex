@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Add %{flex} helper
 
 0.07      2016-02-05 22:55:40 -0500
   - Prune experimental t/run.t test

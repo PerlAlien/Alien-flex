@@ -11,6 +11,7 @@ pod_coverage:
   # for either Class or method.
   private:
     - Alien::flex#bin_dir
+    - Alien::flex#alien_helper
 
 unused_vars:
   skip: 0

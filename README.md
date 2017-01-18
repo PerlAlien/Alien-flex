@@ -24,6 +24,14 @@ From Alien::Base Build.PL
 
 This package can be used by other CPAN modules that require flex.
 
+# HELPERS
+
+## flex
+
+    %{flex}
+
+Returns the name of the flex command.  Usually just `flex`.
+
 # AUTHOR
 
 Graham Ollis <plicease@cpan.org>

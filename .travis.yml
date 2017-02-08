@@ -5,7 +5,8 @@ install:
   - perlbrew list
   - dzil authordeps --missing | cpanm -n
   - dzil listdeps --missing | cpanm -n
-  - dzil aliendeps --env | cpanm -n
+  - cpanm App::af
+  - af missing | cpanm -n
 
 perl:
   - "5.14"

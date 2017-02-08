@@ -49,7 +49,12 @@ sub alien_check_installed_version
           {
             push @paths, [File::Spec->catdir(_short $data, "bin")];
           }
-          
+
+          if(RegQueryValueEx($flex_key, "Inno Setup: App Path", [], REG_SZ, $data, [] ))
+          {
+            push @paths, [File::Spec->catdir(_short $data, "bin")];
+          }
+
           RegCloseKey( $flex_key );
         }
         RegCloseKey($uninstall_key);
@@ -64,7 +69,7 @@ sub alien_check_installed_version
 
   print "try system paths:\n";
   print "  - ", $_, "\n" for map { $_ eq '' ? 'PATH' : $_ } map { File::Spec->catdir(@$_) } @paths;
-  
+
   foreach my $path (@paths)
   {
     my @stdout;
@@ -72,7 +77,7 @@ sub alien_check_installed_version
     my $stderr = capture_stderr {
       @stdout = `$exe --version`;
     };
-    if(defined $stdout[0] && $stdout[0] =~ /^flex/ && $stdout[0] =~ /([0-9\.]+)$/)
+    if(defined $stdout[0] && $stdout[0] =~ /flex/ && $stdout[0] =~ /([0-9\.]+)$/)
     {
       $self->config_data( flex_system_path => File::Spec->catdir(@$path) ) if ref($self) && @$path;
       return $1;

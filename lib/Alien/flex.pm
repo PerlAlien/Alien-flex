@@ -2,7 +2,7 @@ package Alien::flex;
 
 use strict;
 use warnings;
-use base qw( Alien::Base );
+use base qw( Alien::Base2 );
 
 # ABSTRACT: Find or build flex
 # VERSION
@@ -36,7 +36,7 @@ sub bin_dir
   my($class) = @_;
   if($class->install_type('system'))
   {
-    my $path = $class->config('flex_system_path');
+    my $path = $class->runtime_prop('system_bin_dir');
     return ($path) if $path;
   }
 

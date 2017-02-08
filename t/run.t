@@ -1,5 +1,3 @@
-use strict;
-use warnings;
 use Test2::Bundle::Extended;
 use Test::Alien;
 use Alien::flex;

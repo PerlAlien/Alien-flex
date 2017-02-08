@@ -27,5 +27,17 @@ share {
   
   plugin 'Build::Autoconf' => ();
 
+  gather sub {
+    my($build) = @_;
+    if(`flex --version` =~ /([0-9\.]+)/)
+    {
+      $build->runtime_prop->{version} = $1;
+    }
+    else
+    {
+      $build->runtime_prop->{version} ||= 'unknown';
+    }
+  };
+
 }
 

@@ -2,7 +2,7 @@ package Alien::flex;
 
 use strict;
 use warnings;
-use base qw( Alien::Base2 );
+use base qw( Alien::Base );
 
 # ABSTRACT: Find or build flex
 # VERSION

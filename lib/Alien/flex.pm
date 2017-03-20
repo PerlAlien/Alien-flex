@@ -29,20 +29,6 @@ From Alien::Base Build.PL
 
 This package can be used by other CPAN modules that require flex.
 
-=cut
-
-sub bin_dir
-{
-  my($class) = @_;
-  if($class->install_type('system'))
-  {
-    my $path = $class->runtime_prop('system_bin_dir');
-    return ($path) if $path;
-  }
-
-  return $class->SUPER::bin_dir;
-}
-
 =head1 HELPERS
 
 =head2 flex

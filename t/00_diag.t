@@ -21,7 +21,12 @@ $modules{$_} = $_ for qw(
   Test::More
 );
 
-
+$post_diag = sub {
+  use Alien::flex;
+  diag "version      = @{[ Alien::flex->config('version') ]}";
+  diag "install_type = @{[ Alien::flex->install_type      ]}";
+  diag "bin_dir      = $_" for Alien::flex->bin_dir;
+};
 
 my @modules = sort keys %modules;
 

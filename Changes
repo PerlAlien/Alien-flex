@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Fix bungled prereqs from previous version
 
 0.11      2017-03-20 02:11:41 -0400
   - Fix GnuWin32 install for windows

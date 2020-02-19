@@ -21,11 +21,26 @@ share {
 
   plugin 'Download' => (
     url     => 'https://github.com/westes/flex/releases',
-    version => qr/^flex-([0-9\.]+)\.tar\.gz$/,
+    version => 'flex-2.6.4.tar.gz',
   );
 
   plugin 'Extract' => 'tar.gz';  
-  
+
+  patch [ '%{patch} -p1 < %{.install.patch}/flex_2.6.4-6.2.diff' ];
+
+  before build => sub {
+
+    # this monstrosity is to ensure that the files have the correct
+    # relative timestamps, otherwise the build will try to
+    # regenerate things using autoconf, which is not wanted.
+    require File::Touch;
+    for my $file ( 'configure.ac', 'aclocal.m4', 'Makefile.in', 'configure', 'doc/flex.1' ) {
+	File::Touch::touch($file);
+	sleep(1);
+    }
+
+  };
+
   plugin 'Build::Autoconf' => ();
 
   gather sub {

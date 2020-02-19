@@ -6,19 +6,23 @@ Find or build flex
 
 From a Perl script
 
-    use Alien::flex;
-    use Env qw( @PATH );
-    unshift @PATH, Alien::flex->bin_dir;  # flex is now in your path
+```perl
+use Alien::flex;
+use Env qw( @PATH );
+unshift @PATH, Alien::flex->bin_dir;  # flex is now in your path
+```
 
 From Alien::Base Build.PL
 
-    use Alien:Base::ModuleBuild;
-    my $builder = Module::Build->new(
-      ...
-      alien_bin_requires => [ 'Alien::flex' ],
-      ...
-    );
-    $builder->create_build_script;
+```perl
+use Alien:Base::ModuleBuild;
+my $builder = Module::Build->new(
+  ...
+  alien_bin_requires => [ 'Alien::flex' ],
+  ...
+);
+$builder->create_build_script;
+```
 
 # DESCRIPTION
 
@@ -28,7 +32,9 @@ This package can be used by other CPAN modules that require flex.
 
 ## flex
 
-    %{flex}
+```
+%{flex}
+```
 
 Returns the name of the flex command.  Usually just `flex`.
 

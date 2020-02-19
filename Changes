@@ -2,6 +2,11 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+  - Created patch based on Debian/Sid patches
+    http://deb.debian.org/debian/pool/main/f/flex/flex_2.6.4-6.2.diff.gz,
+    removing Debian specific changes
+  - explicitly download version 2.6.4 so patch works
+
 0.12      2017-03-20 03:43:59 -0400
   - Fix bungled prereqs from previous version
 

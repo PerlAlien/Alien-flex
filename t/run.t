@@ -18,5 +18,5 @@ my $run = run_ok(['flex', '--version'])
   ->exit_is(0);
 
 $run->success ? $run->note : $run->diag;
-  
+
 done_testing;

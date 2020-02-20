@@ -15,7 +15,18 @@ From a Perl script
  use Env qw( @PATH );
  unshift @PATH, Alien::flex->bin_dir;  # flex is now in your path
 
-From Alien::Base Build.PL
+In an L<Alien::Build> L<alienfile>:
+
+ use alienfile;
+ 
+ share {
+   ...
+   requires 'Alien::flex';
+   build [ '%{flex} ...' ];
+   ...
+ };
+
+From Build.PL / L<Alien::Base::ModuleBuild>:
 
  use Alien:Base::ModuleBuild;
  my $builder = Module::Build->new(

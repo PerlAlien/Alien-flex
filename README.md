@@ -12,7 +12,20 @@ use Env qw( @PATH );
 unshift @PATH, Alien::flex->bin_dir;  # flex is now in your path
 ```
 
-From Alien::Base Build.PL
+In an [Alien::Build](https://metacpan.org/pod/Alien::Build) [alienfile](https://metacpan.org/pod/alienfile):
+
+```perl
+use alienfile;
+
+share {
+  ...
+  requires 'Alien::flex';
+  build [ '%{flex} ...' ];
+  ...
+};
+```
+
+From Build.PL / [Alien::Base::ModuleBuild](https://metacpan.org/pod/Alien::Base::ModuleBuild):
 
 ```perl
 use Alien:Base::ModuleBuild;

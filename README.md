@@ -1,4 +1,4 @@
-# Alien::flex [![Build Status](https://secure.travis-ci.org/Perl5-Alien/Alien-flex.png)](http://travis-ci.org/Perl5-Alien/Alien-flex)
+# Alien::flex [![Build Status](https://secure.travis-ci.org/Perl5-Alien/Alien-flex.png)](http://travis-ci.org/Perl5-Alien/Alien-flex) ![windows](https://github.com/Perl5-Alien/Alien-flex/workflows/windows/badge.svg)
 
 Find or build flex
 

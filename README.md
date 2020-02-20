@@ -53,7 +53,11 @@ Returns the name of the flex command.  Usually just `flex`.
 
 # AUTHOR
 
-Graham Ollis <plicease@cpan.org>
+Author: Graham Ollis <plicease@cpan.org>
+
+Contributors:
+
+Diab Jerius (DJERIUS)
 
 # COPYRIGHT AND LICENSE
 

@@ -20,8 +20,8 @@ share {
   requires 'Alien::m4'    => '0.08';
 
   plugin 'Download' => (
-    url     => 'https://github.com/westes/flex/releases',
-    version => 'flex-2.6.4.tar.gz',
+    url     => 'https://github.com/westes/flex/files/981163/flex-2.6.4.tar.gz',
+    version => qr/^flex-([0-9\.]+)\.tar\.gz$/,
   );
 
   plugin 'Extract' => 'tar.gz';  

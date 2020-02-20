@@ -15,8 +15,9 @@ $modules{$_} = $_ for qw(
   Alien::Build::MM
   Alien::Build::Plugin::Probe::GnuWin32
   ExtUtils::MakeMaker
-  Test2::Bundle::Extended
+  Test2::V0
   Test::Alien
+  Test::Alien::Diag
   Test::More
 );
 

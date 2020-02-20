@@ -30,7 +30,13 @@ share {
 
   plugin 'Build::Autoconf' => ();
 
+  requires 'Path::Tiny' => 0;
+
   build [
+    sub {
+      log 'touch doc/flex.1';
+      Path::Tiny->new('doc/flex.1')->touch,
+    },
     '%{configure} --disable-maintainer-mode',
     '%{make}',
     '%{make} install',

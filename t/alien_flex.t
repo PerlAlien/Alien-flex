@@ -1,18 +1,12 @@
-use Test2::Bundle::Extended;
+use Test2::V0 -no_srand => 1;
 use Test::Alien;
+use Test::Alien::Diag;
 use Alien::flex;
 use Env qw( @PATH );
 
 alien_ok 'Alien::flex';
 
-#diag "";
-#diag "";
-#diag "";
-#diag "PATH:";
-#diag "  - $_" for @PATH;
-#diag "";
-#diag "";
-#diag "";
+alien_diag 'Alien::flex';
 
 my $run = run_ok(['flex', '--version'])
   ->exit_is(0);

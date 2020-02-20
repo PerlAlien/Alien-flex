@@ -1,7 +1,7 @@
 use alienfile;
 
 plugin 'Probe::GnuWin32' => (
-  registery_key_regex => qr/^flex/i,
+  registry_key_regex => qr/^flex/i,
   exe_name => 'flex',
   exe_match => qr/flex/,
   exe_version => qr/version ([0-9\.]+)/,
@@ -26,22 +26,15 @@ share {
 
   plugin 'Extract' => 'tar.gz';  
 
-  patch [ '%{patch} -p1 < %{.install.patch}/flex_2.6.4-6.2.diff' ];
-
-  before build => sub {
-
-    # this monstrosity is to ensure that the files have the correct
-    # relative timestamps, otherwise the build will try to
-    # regenerate things using autoconf, which is not wanted.
-    requires 'Path::Tiny' => 0;
-    for my $file ( 'configure.ac', 'aclocal.m4', 'Makefile.in', 'configure', 'doc/flex.1' ) {
-        Path::Tiny::path($file)->touch;
-	sleep(1);
-    }
-
-  };
+  patch [ '%{patch} -p1 < %{.install.patch}/flex-2.6.4.diff' ];
 
   plugin 'Build::Autoconf' => ();
+
+  build [
+    '%{configure} --disable-maintainer-mode',
+    '%{make}',
+    '%{make} install',
+  ];
 
   gather sub {
     my($build) = @_;

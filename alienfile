@@ -33,9 +33,9 @@ share {
     # this monstrosity is to ensure that the files have the correct
     # relative timestamps, otherwise the build will try to
     # regenerate things using autoconf, which is not wanted.
-    require File::Touch;
+    requires 'Path::Tiny' => 0;
     for my $file ( 'configure.ac', 'aclocal.m4', 'Makefile.in', 'configure', 'doc/flex.1' ) {
-	File::Touch::touch($file);
+        Path::Tiny::path($file)->touch;
 	sleep(1);
     }
 

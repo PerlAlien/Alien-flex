@@ -17,4 +17,4 @@ else
   echo use internet flex
 fi
 
-cip sudo dzil-cpanm -n Alien::Build::Plugin::Probe::GnuWin32
+cip exec dzil-cpanm -n Alien::Build::Plugin::Probe::GnuWin32

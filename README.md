@@ -1,4 +1,4 @@
-# Alien::flex ![linux](https://github.com/PerlAlien/Alien-flex/workflows/linux/badge.svg)
+# Alien::flex ![static](https://github.com/PerlAlien/Alien-flex/workflows/static/badge.svg) ![linux](https://github.com/PerlAlien/Alien-flex/workflows/linux/badge.svg)
 
 Find or build flex
 
